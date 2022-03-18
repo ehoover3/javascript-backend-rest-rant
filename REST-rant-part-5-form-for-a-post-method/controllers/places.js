@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { get } = require("express/lib/response");
 const places = require("../models/places.js");
 
 router.get("/", (req, res) => {
@@ -16,7 +17,6 @@ router.post("/", (req, res) => {
   if (!req.body.state) {
     req.body.state = "USA";
   }
-  console.log(req.body);
   places.push(req.body);
   res.redirect("/places");
 });
